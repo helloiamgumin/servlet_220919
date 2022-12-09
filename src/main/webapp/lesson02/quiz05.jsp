@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Quiz03</title>
+<title>길이 변환</title>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -12,15 +12,20 @@
 </head>
 <body>
 	<div class="container">
-		<h1>체격 조건 입력</h1>
-		<form method="get" action="/lesson02/quiz03_1.jsp">
+		<h1>길이 변환</h1>
+		<form method="post" action="/lesson02/quiz05_1.jsp">
 			<div class="form-group d-flex">
-				<input type="text" class="form-control col-2" name="height" placeholder="키를 입력하세요.">
-				<span class=m-2>cm</span>
-				<input type="text" class="form-control col-2" name="weight" placeholder="몸무게를 입력하세요.">
-				<span class=m-2>kg</span>
-				<button type="submit" class="btn btn-info ml-2">계산</button>
+				<input type="text" name="length" class="form-control col-2">
+				<span class="mt-3 ml-2">cm</span>
 			</div>
+			<div>
+			<label>인치 <input type="checkbox" name="unit" value="inch"></label>
+			<label class="ml-2">야드 <input type="checkbox" name="unit" value="yard"></label>
+			<label class="ml-2">피트 <input type="checkbox" name="unit" value="feet"></label>
+			<label class="ml-2">미터 <input type="checkbox" name="unit" value="meter"></label>
+			</div>
+			<button type ="submit" class="btn btn-success">변환하기</button>
+			
 		</form>
 	</div>
 </body>
