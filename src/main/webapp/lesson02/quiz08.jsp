@@ -24,7 +24,6 @@
         	} 
     	};
     	list.add(map);
-
     	map = new HashMap<String, Object>() {
        	 	{ 
             put("id", 1001);
@@ -35,7 +34,6 @@
         	} 
     	};
     	list.add(map);
-
     	map = new HashMap<String, Object>() {
         	{ 
             put("id", 1002);
@@ -46,7 +44,6 @@
         	} 
     	};
     	list.add(map);
-
     	map = new HashMap<String, Object>() {
         	{ 
             put("id", 1003);
@@ -58,28 +55,32 @@
     	};
     	list.add(map);
 	%>
-	
+
 	<div class="container">
+		<div class="d-flex justify-content-center">
 		<h1>책 목록</h1>
+		</div>
 		<table class="table text-center">
 		<thead>
 			<tr>
 				<th>id</th>
-				<th>표지</th>
+				<th class="text-left pl-4">표지</th>
 				<th>제목</th>
 			</tr>
 		</thead>
 		<tbody>
 		<%
-			for (int i = 0; i < list.size(); i++) {
+			for (Map<String, Object> book : list) {
+		%>
+			<tr>
+				<td><%= book.get("id") %></td>
+				<td class="text-left"><img src="<%= book.get("image") %>" alt="표지" width="70" height="100"></td>					
+				<td><a href="/lesson02/quiz08_1.jsp?id=<%= book.get("id") %>&title=<%= book.get("title") %>&author=<%= book.get("author") %>&publisher=<%= book.get("publisher") %>&image=<%= book.get("image") %>"><%= book.get("title") %></a></td>							
+			</tr>
+		<% 
 				
 			}
 		%>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
 		</tbody>
 		</table>
 	</div>
