@@ -70,38 +70,45 @@
     musicInfo.put("composer", "아이유,이종훈,이채규");
     musicInfo.put("lyricist", "아이유");
     musicList.add(musicInfo);
-%>
+%>    
+
+<h4 class="mt-3 font-weight-bold">곡 정보</h4>
 <div class="border border-success d-flex">
+	<%
+		String title = request.getParameter("title");
+		String keyword = request.getParameter("keyword");
+		for (Map<String, Object> item : musicList) {
+			if (item.get("title").equals(title) || item.get("title").equals(keyword)) {
+	%>
 	<div>
-		<img src="<%= artistInfo.get("photo") %>" alt="이미지" width="200" height="200" class="m-4">
+		<img src="<%=item.get("thumbnail")%>" alt="앨범 이미지" width="200"
+			height="200" class="m-4">
 	</div>
 	<div class="mt-4">
-		<h3 class="font-weight-bold"><%= artistInfo.get("name") %></h3>
-		<h5><%= artistInfo.get("agency") %></h5>
-		<h5><%= artistInfo.get("debute") %> 데뷔</h5>
+		<h1><%= item.get("title") %></h1>
+		<span class="text-success font-weight-bold"><%= item.get("singer") %></span><br><br>
+		<div class="d-flex">
+			<small class="text-secondary mr-5">앨범</small>
+			<small class="text-secondary ml-2"><%= item.get("album") %></small>
+		</div>
+		<div class="d-flex">
+			<small class="text-secondary mr-4">재생시간</small>
+			<small class="text-secondary ml-1"><%= (int)item.get("time") / 60 %> : <%= (int)item.get("time") % 60 %></small>
+		</div>
+		<div class="d-flex">
+			<small class="text-secondary mr-4">작곡가</small>
+			<small class="text-secondary ml-3"><%= item.get("composer") %></small>
+		</div>
+		<div class="d-flex">
+			<small class="text-secondary mr-4">작사가</small>
+			<small class="text-secondary ml-3"><%= item.get("lyricist") %></small>
+		</div>
 	</div>
-</div>
-
-<h4 class="mt-3 font-weight-bold">곡 목록</h4>
-<table class="table text-center">
-	<thead>
-		<tr>
-			<th>no</th>
-			<th>제목</th>
-			<th>앨범</th>
-		</tr>
-	</thead>
-	<tbody>
-		<%
-		for (Map<String, Object> item : musicList) {
-		%>
-		<tr>
-			<td><%=item.get("id")%></td>
-			<td><a class="font-weight-bold" href="/lesson03/quiz02/detail_template.jsp?title=<%=item.get("title")%>"><%=item.get("title")%></a></td>
-			<td><%=item.get("album")%></td>
-		</tr>
-		<%
+	<%
+			}
 		}
-		%>
-	</tbody>
-</table>
+	%>
+</div>
+<h4 class="mt-5 font-weight-bold">가사</h4><hr>
+<span>가사 정보 없음</span>
+<br><br><br><hr>
