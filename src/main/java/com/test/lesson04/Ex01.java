@@ -29,11 +29,11 @@ public class Ex01 extends HttpServlet {
 				+ "values"
 				+ "(1, '고양이 간식 팝니다.', '저희 고양이가 입맛이 까다로워서 잘 안먹어요ㅠ', 2000)";
 		
-		try {
-			ms.update(insertQuery);
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
+//		try {
+//			ms.update(insertQuery);
+//		} catch (SQLException e1) {
+//			e1.printStackTrace();
+//		}
 		
 		// DB select & 결과 출력
 		PrintWriter out = response.getWriter();
